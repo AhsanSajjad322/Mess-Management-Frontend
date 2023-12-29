@@ -1,0 +1,128 @@
+<% layout("/layouts/studentboilerplate") %>
+
+    <body>
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Welcome <%= student.name %>!</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item active">Dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="about-info">
+                                    <h4 class="page-title">About Me</h4>
+                                    <div class="media mt-3">
+                                        
+                                        <img src="/assests/M. Ahsan Sajjad.jpeg" class="mr-3" alt="user_image">
+                                        
+                                        <div class="media-body">
+                                            <ul>
+                                                <li>
+                                                    <span class="title-span">Full Name : </span>
+                                                    <span class="info-span"><%= student.name %></span>
+                                                </li>
+                                                <li>
+                                                    <span class="title-span">Department : </span>
+                                                    <span class="info-span"><%= student.department %></span>
+                                                </li>
+                                                <li>
+                                                    <span class="title-span">Mobile : </span>
+                                                    <span class="info-span"><%= student.phone %></span>
+                                                </li>
+                                                <li>
+                                                    <span class="title-span">Hostel : </span>
+                                                    <span class="info-span"><%= student.hostel %></span>
+                                                </li>
+                                                <li>
+                                                    <span class="title-span">CMS ID : </span>
+                                                    <span class="info-span"><%= student.cms %></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <h5 class="page-title">Mess Taken Current Month</h5>
+                                        </div>
+                                    </div>
+                                    <% let breakfast = 0; %>
+                                    <% let lunch = 0; %>
+                                    <% let dinner = 0; %>
+                                    <% for( let index = 0; index < 31; index++ ) { %>
+                                        <% if (student.calendar.days[index].breakfast == 'P') { %>
+                                            <% breakfast += 1; %>
+                                        <% } %>
+                                        <% if (student.calendar.days[index].lunch == 'P') { %>
+                                            <% lunch += 1; %>
+                                        <% } %>
+                                        <% if (student.calendar.days[index].dinner == 'P') { %>
+                                            <% dinner += 1; %>
+                                        <% } %>
+                                    <% } %>
+                                    <div class="row follow-sec">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="blue-box">
+                                                <h3><%= breakfast %></h3>
+                                                <p>Breakfast</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="blue-box">
+                                                <h3><%= lunch %></h3>
+                                                <p>Lunch</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="blue-box">
+                                                <h3><%= dinner %></h3>
+                                                <p>Dinner</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <h5 class="page-title">Mess Not Done Current Month</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row follow-sec">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="blue-box">
+                                                <h3><%= 31 - breakfast %></h3>
+                                                <p>Breakfast</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="blue-box">
+                                                <h3><%= 31 - lunch %></h3>
+                                                <p>Lunch</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="blue-box">
+                                                <h3><%= 31 - dinner %></h3>
+                                                <p>Dinner</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        
+        
+    </body>

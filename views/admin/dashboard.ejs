@@ -1,0 +1,215 @@
+<% layout("/layouts/adminboilerplate") %>
+
+   <body>
+      <div class="page-wrapper">
+         <div class="content container-fluid">
+            <div class="page-header">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <h3 class="page-title">Welcome <%= admin.name %>!</h3>
+                     <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Dashboard</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                  <div class="card bg-one w-100">
+                     <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-icon">
+                              <i class="fas fa-user-graduate"></i>
+                           </div>
+                           <div class="db-info">
+                              <h3><%= noOfStudents %></h3>
+                              <h6>Students</h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                  <div class="card bg-two w-100">
+                     <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-icon">
+                              <i class="fas fa-user"></i>
+                           </div>
+                           <div class="db-info">
+                              <h3>13</h3>
+                              <h6>Mess Workers</h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                  <div class="card bg-three w-100">
+                     <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-icon">
+                              <i class="fas fa-building"></i>
+                           </div>
+                           <div class="db-info">
+                              <h3><%= admin.hostel %></h3>
+                              <h6>Hostel</h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-sm-6 col-12 d-flex">
+                  <div class="card bg-four w-100">
+                     <div class="card-body">
+                        <div class="db-widgets d-flex justify-content-between align-items-center">
+                           <div class="db-icon">
+                              <i class="fas fa-file-invoice-dollar"></i>
+                           </div>
+                           <div class="db-info">
+                              <h3>$505</h3>
+                              <h6>Revenue</h6>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <h3 class="page-title mb-3">Today Mess Off Students</h3>
+
+            <div class="container mb-5">
+               <div class="scrollable-div" style="height: 400px; overflow-y: scroll; overflow-x: hidden;">
+                  <div class="row">
+                     <div class="col-md-12 d-flex">
+                        <div class="card flex-fill">
+                           <div class="card-header" style="background-color: #7bc2e5;">
+                              <h5 class="card-title page-title">Breakfast</h5>
+                           </div>
+                           <div class="card-body">
+                              <div class="table-responsive">
+                                 <table class="table table-hover table-center">
+                                    <thead class="thead-light">
+                                       <tr>
+                                          <th>Roll No</th>
+                                          <th>Name</th>
+                                          <th>Department</th>
+                                          <th>Room #</th>
+                                          <th>Batch</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <% for( let index = 0; index < messOffStudents[0].breakfast.length; index++ ) { %>
+                                          <tr>
+                                             <td class="text-nowrap">
+                                                <div><%= messOffStudents[0].breakfast[index].cms %></div>
+                                             </td>
+                                             <td class="text-nowrap"><%= messOffStudents[0].breakfast[index].name %></td>
+                                             <td><%= messOffStudents[0].breakfast[index].department %></td>
+                                             <td><%= messOffStudents[0].breakfast[index].room %></td>
+                                             <td>
+                                                <div><%= messOffStudents[0].breakfast[index].batch %></div>
+                                             </td>
+                                          </tr>
+                                       <% } %>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="container mb-5">
+               <div class="scrollable-div" style="height: 400px; overflow-y: scroll; overflow-x: hidden;">
+                  <div class="row">
+                     <div class="col-md-12 d-flex">
+                        <div class="card flex-fill">
+                           <div class="card-header" style="background-color: #7bc2e5;">
+                              <h5 class="card-title page-title">Lunch</h5>
+                           </div>
+                           <div class="card-body">
+                              <div class="table-responsive">
+                                 <table class="table table-hover table-center">
+                                    <thead class="thead-light">
+                                       <tr>
+                                          <th>Roll No</th>
+                                          <th>Name</th>
+                                          <th>Department</th>
+                                          <th>Room #</th>
+                                          <th>Batch</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <% for( let index = 0; index < messOffStudents[1].lunch.length; index++ ) { %>
+                                          <tr>
+                                             <td class="text-nowrap">
+                                                <div><%= messOffStudents[1].lunch[index].cms %></div>
+                                             </td>
+                                             <td class="text-nowrap"><%= messOffStudents[1].lunch[index].name %></td>
+                                             <td><%= messOffStudents[1].lunch[index].department %></td>
+                                             <td><%= messOffStudents[1].lunch[index].room %></td>
+                                             <td>
+                                                <div><%= messOffStudents[1].lunch[index].batch %></div>
+                                             </td>
+                                          </tr>
+                                       <% } %>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="container mb-5">
+               <div class="scrollable-div" style="height: 400px; overflow-y: scroll; overflow-x: hidden;">
+                  <div class="row">
+                     <div class="col-md-12 d-flex">
+                        <div class="card flex-fill">
+                           <div class="card-header" style="background-color: #7bc2e5;">
+                              <h5 class="card-title page-title">Dinner</h5>
+                           </div>
+                           <div class="card-body">
+                              <div class="table-responsive">
+                                 <table class="table table-hover table-center">
+                                    <thead class="thead-light">
+                                       <tr>
+                                          <th>Roll No</th>
+                                          <th>Name</th>
+                                          <th>Department</th>
+                                          <th>Room #</th>
+                                          <th>Batch</th>
+                                       </tr>
+                                    </thead>
+                                    <lunch
+                                       <% for( let index = 0; index < messOffStudents[2].dinner.length; index++ ) { %>
+                                          <tr>
+                                             <td class="text-nowrap">
+                                                <div><%= messOffStudents[2].dinner[index].cms %></div>
+                                             </td>
+                                             <td class="text-nowrap"><%= messOffStudents[2].dinner[index].name %></td>
+                                             <td><%= messOffStudents[2].dinner[index].department %></td>
+                                             <td><%= messOffStudents[2].dinner[index].room %></td>
+                                             <td>
+                                                <div><%= messOffStudents[2].dinner[index].batch %></div>
+                                             </td>
+                                          </tr>
+                                       <% } %>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+         </div>
+
+      </div>
+   </body>

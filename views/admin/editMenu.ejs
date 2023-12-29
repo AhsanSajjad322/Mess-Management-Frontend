@@ -1,0 +1,71 @@
+<% layout("/layouts/adminboilerplate") %>
+<body>
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="container">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Edit Mess Menu</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/mms/admin/dashboard">Dashboard</a></li>
+                           <li class="breadcrumb-item active">Edit Menu</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                       <div class="card">
+                          <div class="card-body">
+                             
+                                <div class="row">
+                                   <div class="col-12">
+                                      <h5 class="form-title"><span class="page-title">Edit Menu</span></h5>
+                                 </div>
+                                 
+
+                                 <% for( let index = 0; index < messMenu.length; index++ ) { %>
+                                    <form action="http://localhost:3001/mms/admin/updateMenu/<%= messMenu[index]._id %>" method="post">
+                                       <div class="row">
+                                          <h5 style="font-weight: bold;"><%= messMenu[index].dayOfWeek %></h5>
+                                          <div class="col-12 col-sm-4">
+                                                <input type="text" name="day" value="<%= messMenu[index].dayOfWeek %>" id="" hidden>
+                                                <div class="form-group">
+                                                   <label for="breakfast">Breakfast</label>
+                                                   <input type="text" name="breakfast" id="breakfast" class="form-control" value="<%= messMenu[index].menu.breakfast %>">
+                                                </div>
+                                             </div>
+                                             <div class="col-12 col-sm-4">
+                                                <div class="form-group">
+                                                   <label for="lunch">Lunch</label>
+                                                   <input type="text" name="lunch" id="lunch" class="form-control" value="<%= messMenu[index].menu.lunch %>">
+                                                </div>
+                                             </div>
+                                             <div class="col-12 col-sm-4">
+                                                <div class="form-group">
+                                                   <label for="dinner">Dinner</label>
+                                                   <input type="text" name="dinner" id="dinner" class="form-control" value="<%= messMenu[index].menu.dinner %>">
+                                                </div>
+                                             </div>
+                                             <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                             </div>
+                                             <br><br><br>
+                                          </div>
+                                    </form>
+                                 <% } %>
+
+                        
+                                </div>
+                             
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+</body>

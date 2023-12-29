@@ -1,0 +1,79 @@
+<% layout("/layouts/studentboilerplate") %>
+
+    <body>
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="page-title">Mess off Request</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/mms/student/dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Mess off</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="http://localhost:3001/mms/student/<%= id %>/messoff" id="messOffForm" method="post">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <h5 class="form-title"><span>Mess off Details</span></h5>
+                                        </div>
+                                        
+                                        
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Date</label>
+                                                <input type="number" id="messOffDate" requried class="form-control" name="day">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <div class="form-group">
+                                                <label>Meal</label>
+                                                <select class="form-control" name="mealtype">
+                                                    <option>Select meal</option>
+                                                    <option value="breakfast">Breakfast</option>
+                                                    <option value="lunch">Lunch</option>
+                                                    <option value="dinner">Dinner</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Add validation logic
+            document.getElementById('messOffForm').addEventListener('submit', function () {
+                var currentDate = new Date();
+                var selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), document.getElementById('messOffDate').value);
+                
+                const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+                const currentMonthLastDay = lastDay.getDate();
+                if(document.getElementById('messOffDate').value < 1 || document.getElementById('messOffDate').value > currentMonthLastDay){
+                    alert('Invalid Date !');
+                    event.preventDefault();
+                }
+
+                if (selectedDate < currentDate) {
+                    alert('* Please select a date greater than the current date.\n* Mess Off Request must be before 1 day');
+                    event.preventDefault(); // Prevent form submission if validation fails
+                }
+            });
+        </script>
+    </body>

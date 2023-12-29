@@ -1,0 +1,112 @@
+<% layout("/layouts/adminboilerplate") %>
+<body>
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+           <div class="page-header">
+              <div class="row">
+                 <div class="col">
+                    <h3 class="page-title">Profile</h3>
+                    <ul class="breadcrumb">
+                       <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                       <li class="breadcrumb-item active">Profile</li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="profile-header mb-3">
+                    <div class="row align-items-center">
+                       <div class="col-auto profile-image">
+                          <a href="#">
+                          <img class="rounded-circle" alt="User Image" src="/assests/M. Ahsan Sajjad.jpeg">
+                          </a>
+                       </div>
+                       <div class="col ml-md-n2 profile-user-info">
+                          <h4 class="user-name mb-0"><%= admin.name %></h4>
+                          <h6 class="text-muted"><%= admin.hostel %> Hostel</h6>
+                       </div>
+                       
+                    </div>
+                 </div>
+                 
+                 <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <form method="POST" action="http://localhost:3001/mms/admin/updateAdmin/<%= admin._id %>?_method=PUT">
+                              <div class="row">
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span class="page-title">Edit Profile</span></h5>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label for="name">Name</label>
+                                       <input type="text" name="name" id="name" class="form-control" value="<%= admin.name %>">
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label for="email">Email</label>
+                                       <input type="email" name="email" id="email" class="form-control" value="<%= admin.email %>">
+                                    </div>
+                                 </div>
+                                 
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label for="hostel">Hostel</label>
+                                       <select class="form-control" id="hostel" name="hostel">
+                                       <option>Select hostel</option>
+                                       <option <% if (admin.hostel === 'Razi') { %> selected <% } %>>Razi</option>
+                                       <option <% if (admin.hostel === 'Rahmat') { %> selected <% } %>>Rahmat</option>
+                                       <option <% if (admin.hostel === 'Ghazali') { %> selected <% } %>>Ghazali</option>
+                                       <option <% if (admin.hostel === 'Attar') { %> selected <% } %>>Attar</option>
+                                       <option <% if (admin.hostel === 'Hajveri') { %> selected <% } %>>Hajveri</option>
+                                       <option <% if (admin.hostel === 'Zikriya') { %> selected <% } %>>Zikriya</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                     <label for="phone">Mobile Number</label>
+                                     <input type="text" class="form-control" name="phone" id="phone" value="<%= admin.phone %>">
+                                  </div>
+                                 </div>
+
+                               <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" id="username" value="<%= admin.username %>" class="form-control">
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="text" name="password" id="password" value="<%= admin.password %>" id="" class="form-control">
+                                 </div>
+                              </div>
+
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" class="form-control">
+                                 </div>
+                                </div>
+                              </div>
+
+                               <div class="col-12">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                               </div>
+                      
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+                  
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+</body>

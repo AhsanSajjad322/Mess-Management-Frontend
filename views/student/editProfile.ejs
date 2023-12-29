@@ -1,0 +1,86 @@
+<% layout("/layouts/studentboilerplate") %>
+<body>
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+           <div class="page-header">
+              <div class="row">
+                 <div class="col">
+                    <h3 class="page-title">Profile</h3>
+                    <ul class="breadcrumb">
+                       <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                       <li class="breadcrumb-item active">Profile</li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="profile-header mb-3">
+                    <div class="row align-items-center">
+                       <div class="col-auto profile-image">
+                          <a href="#">
+                          <img class="rounded-circle" alt="User Image" src="/assests/M. Ahsan Sajjad.jpeg">
+                          </a>
+                       </div>
+                       <div class="col ml-md-n2 profile-user-info">
+                          <h4 class="user-name mb-0"><%= student.name %></h4>
+                          <h6 class="text-muted"><%= student.hostel %> Hostel</h6>
+                       </div>
+                       
+                    </div>
+                 </div>
+                 
+                 <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <form method="POST" action="http://localhost:3001/mms/student/updateStudent/<%= student._id %>?_method=PUT">
+                              <div class="row">
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span class="page-title">Edit Profile</span></h5>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label for="name">Name</label>
+                                       <input type="text" name="name" id="name" value="<%= student.name %>" class="form-control">
+                                    </div>
+                                 </div>
+
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label for="email">Email</label>
+                                       <input type="email" name="email" id="email" value="<%= student.email %>" class="form-control">
+                                    </div>
+                                 </div>
+                                
+                                 <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                     <label for="phone">Mobile Number</label>
+                                     <input type="text" name="phone" id="phone" value="<%= student.phone %>" class="form-control">
+                                  </div>
+                                 </div>
+                               
+                                 <div class="col-12 col-sm-6">
+                                  <div class="form-group">
+                                     <label>Image</label>
+                                     <input type="file" class="form-control">
+                                  </div>
+                                 </div>
+                               </div>
+
+                               <div class="col-12">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                               </div>
+                      
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+                  
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+</body>

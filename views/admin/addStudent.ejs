@@ -1,0 +1,126 @@
+<% layout("/layouts/adminboilerplate") %>
+<body>
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="container">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Add Students</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/mms/admin/dashboard">Dashboard</a></li>
+                           <li class="breadcrumb-item active">Add Students</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                       <div class="card">
+                          <div class="card-body">
+                             <form method="get" action="http://localhost:3001/mms/admin/addStudentService">
+                                <div class="row">
+                                   <div class="col-12">
+                                      <h5 class="form-title"><span class="page-title">Student Information</span></h5>
+                                   </div>
+                                   <div class="col-12 col-sm-6">
+                                      <div class="form-group">
+                                         <label>Name</label>
+                                         <input type="text" name="name"class="form-control" required>
+                                      </div>
+                                   </div>
+                                   
+                                   <div class="col-12 col-sm-6">
+                                      <div class="form-group">
+                                         <label>CMS Id</label>
+                                         <input type="text" name="cms" class="form-control" required>
+                                      </div>
+                                   </div>
+                                   
+                                   <div class="col-12 col-sm-6">
+                                      <div class="form-group">
+                                         <label>Email</label>
+                                         <input type="text" name="email" class="form-control">
+                                      </div>
+                                   </div>
+                                   <div class="col-12 col-sm-6">
+                                      <div class="form-group">
+                                         <label>Hostel</label>
+                                         <select class="form-control" name="hostel" required>
+                                            <option>Select hostel</option>
+                                            <option>Razi</option>
+                                            <option>Rahmat</option>
+                                            <option>Ghazali</option>
+                                            <option>Attar</option>
+                                            <option>Hajveri</option>
+                                            <option>Zikriya</option>
+                                         </select>
+                                      </div>
+                                   </div>
+                                   <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Mobile Number</label>
+                                       <input type="text" name="phone" class="form-control">
+                                    </div>
+                                   </div>
+
+                                   <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Batch</label>
+                                       <input type="number" name="batch" class="form-control" required>
+                                    </div>
+                                   </div>
+                                 
+                                   <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Student Image</label>
+                                       <input type="file" class="form-control">
+                                    </div>
+                                   </div>
+                                   <div class="col-12 col-sm-6">
+                                      <div class="form-group">
+                                         <label>Department</label>
+                                         <input type="text" name="department" class="form-control" required>
+                                      </div>
+                                   </div>
+
+                                   <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Room #</label>
+                                       <input type="number" name="room" class="form-control" required>
+                                    </div>
+                                 </div>
+
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Username</label>
+                                       <input type="text" name="username" class="form-control" required>
+                                    </div>
+                                 </div>
+
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Password</label>
+                                       <input type="text" name="password" class="form-control" required>
+                                    </div>
+                                 </div>
+
+                                 <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                 </div>
+
+                                 </div>
+
+                                 
+                        
+                             </form>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+</body>
