@@ -64,11 +64,11 @@
                      <div class="card-body">
                         <div class="db-widgets d-flex justify-content-between align-items-center">
                            <div class="db-icon">
-                              <i class="fas fa-file-invoice-dollar"></i>
+                              <i class="fa-regular fa-calendar"></i>
                            </div>
                            <div class="db-info">
-                              <h3>$505</h3>
-                              <h6>Revenue</h6>
+                              <h3><%= formattedDate %></h3>
+                              <h6>Date</h6>
                            </div>
                         </div>
                      </div>
@@ -98,20 +98,27 @@
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <% for( let index = 0; index < messOffStudents[0].breakfast.length; index++ ) { %>
+                                       <% if (messOffStudents && messOffStudents[0] && messOffStudents[0].breakfast) { %>
+                                          <% for (let index = 0; index < messOffStudents[0].breakfast.length; index++) { %>
+                                             <tr>
+                                                <td class="text-nowrap">
+                                                   <div><%= messOffStudents[0].breakfast[index].cms %></div>
+                                                </td>
+                                                <td class="text-nowrap"><%= messOffStudents[0].breakfast[index].name %></td>
+                                                <td><%= messOffStudents[0].breakfast[index].department %></td>
+                                                <td><%= messOffStudents[0].breakfast[index].room %></td>
+                                                <td>
+                                                   <div><%= messOffStudents[0].breakfast[index].batch %></div>
+                                                </td>
+                                             </tr>
+                                          <% } %>
+                                       <% } else { %>
                                           <tr>
-                                             <td class="text-nowrap">
-                                                <div><%= messOffStudents[0].breakfast[index].cms %></div>
-                                             </td>
-                                             <td class="text-nowrap"><%= messOffStudents[0].breakfast[index].name %></td>
-                                             <td><%= messOffStudents[0].breakfast[index].department %></td>
-                                             <td><%= messOffStudents[0].breakfast[index].room %></td>
-                                             <td>
-                                                <div><%= messOffStudents[0].breakfast[index].batch %></div>
-                                             </td>
+                                             <td colspan="5">No data available</td>
                                           </tr>
                                        <% } %>
                                     </tbody>
+                                    
                                  </table>
                               </div>
                            </div>
@@ -142,20 +149,27 @@
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <% for( let index = 0; index < messOffStudents[1].lunch.length; index++ ) { %>
+                                       <% if (messOffStudents && messOffStudents[1] && messOffStudents[1].lunch) { %>
+                                          <% for (let index = 0; index < messOffStudents[1].lunch.length; index++) { %>
+                                             <tr>
+                                                <td class="text-nowrap">
+                                                   <div><%= messOffStudents[1].lunch[index].cms %></div>
+                                                </td>
+                                                <td class="text-nowrap"><%= messOffStudents[1].lunch[index].name %></td>
+                                                <td><%= messOffStudents[1].lunch[index].department %></td>
+                                                <td><%= messOffStudents[1].lunch[index].room %></td>
+                                                <td>
+                                                   <div><%= messOffStudents[1].lunch[index].batch %></div>
+                                                </td>
+                                             </tr>
+                                          <% } %>
+                                       <% } else { %>
                                           <tr>
-                                             <td class="text-nowrap">
-                                                <div><%= messOffStudents[1].lunch[index].cms %></div>
-                                             </td>
-                                             <td class="text-nowrap"><%= messOffStudents[1].lunch[index].name %></td>
-                                             <td><%= messOffStudents[1].lunch[index].department %></td>
-                                             <td><%= messOffStudents[1].lunch[index].room %></td>
-                                             <td>
-                                                <div><%= messOffStudents[1].lunch[index].batch %></div>
-                                             </td>
+                                             <td colspan="5">No lunch data available</td>
                                           </tr>
                                        <% } %>
                                     </tbody>
+                                    
                                  </table>
                               </div>
                            </div>
@@ -184,21 +198,28 @@
                                           <th>Batch</th>
                                        </tr>
                                     </thead>
-                                    <lunch
-                                       <% for( let index = 0; index < messOffStudents[2].dinner.length; index++ ) { %>
+                                    <tbody>
+                                       <% if (messOffStudents && messOffStudents[2] && messOffStudents[2].dinner) { %>
+                                          <% for (let index = 0; index < messOffStudents[2].dinner.length; index++) { %>
+                                             <tr>
+                                                <td class="text-nowrap">
+                                                   <div><%= messOffStudents[2].dinner[index].cms %></div>
+                                                </td>
+                                                <td class="text-nowrap"><%= messOffStudents[2].dinner[index].name %></td>
+                                                <td><%= messOffStudents[2].dinner[index].department %></td>
+                                                <td><%= messOffStudents[2].dinner[index].room %></td>
+                                                <td>
+                                                   <div><%= messOffStudents[2].dinner[index].batch %></div>
+                                                </td>
+                                             </tr>
+                                          <% } %>
+                                       <% } else { %>
                                           <tr>
-                                             <td class="text-nowrap">
-                                                <div><%= messOffStudents[2].dinner[index].cms %></div>
-                                             </td>
-                                             <td class="text-nowrap"><%= messOffStudents[2].dinner[index].name %></td>
-                                             <td><%= messOffStudents[2].dinner[index].department %></td>
-                                             <td><%= messOffStudents[2].dinner[index].room %></td>
-                                             <td>
-                                                <div><%= messOffStudents[2].dinner[index].batch %></div>
-                                             </td>
+                                             <td colspan="5">No dinner data available</td>
                                           </tr>
                                        <% } %>
                                     </tbody>
+                                    
                                  </table>
                               </div>
                            </div>

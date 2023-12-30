@@ -17,7 +17,8 @@ const storedTokenMiddleware = (req, res, next) => {
       next();
     } else {
       // If the token is not found, redirect to the login page
-      res.render('student/login.ejs');
+      console.log("ok ok ----------")
+      res.redirect('/mms/login');
     }
   };
   

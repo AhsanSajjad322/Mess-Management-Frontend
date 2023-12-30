@@ -18,7 +18,8 @@ const storedTokenMiddleware = (req, res, next) => {
     next();
   } else {
     // If the token is not found, redirect to the login page
-    res.render('admin/login.ejs');
+    res.redirect('/mms/login');
+    
   }
 };
 
@@ -92,29 +93,6 @@ router.get("/logout", async(req,res)=>{
   await adminService.logout();
   res.redirect('/mms/login');
 })
-// router.post('/login/validate',async(req,res)=>{
-//   if (req.body.isAdmin == 'on'){
-//     let username= req.body.username;
-//     let password = req.body.password;
-//     let credentials = {
-//         "username": username,
-//         "password": password
-//     }
-//     // john_doe123
-//     // securePassword
-//     let responce = await adminService.validate(credentials);
-//     console.log(responce);
-//     if (responce == 'valid'){
-//         const storedToken = localStorage.getItem('token');
-//         console.log('Stored Token:', storedToken);
-//         res.redirect('/mms/admin/dashboard')
-//     } else if(responce == 'invalid'){
-//         res.render("admin/login.ejs");
-//     }
-//   } else{
-//     res.render("admin/login.ejs");
-//   }
-// })
 
 router.get("/",storedTokenMiddleware, validateTokenMiddleware, (req,res)=>{
   if (req.userId) {
@@ -132,12 +110,16 @@ router.get("/dashboard",storedTokenMiddleware, validateTokenMiddleware, async (r
       Call a service function which gives the students that have mess off for today
       */ 
     let messOffStudents = await adminService.getMessOffStudents();
-    console.log("----------------------------------------");
-    console.log(messOffStudents[0].breakfast);
     let admin = await adminService.getAdminbyID(req.userId);
     let students = await adminService.fetchStudents()
     let noOfStudents = students.length;
-    res.render('admin/dashboard.ejs', {admin, noOfStudents, messOffStudents});
+    // console.log("*******************************************")
+    // // console.log(messOffStudents[0].lunch.length);
+    // console.log(messOffStudents)
+    let date = new Date();
+    let formattedDate = date.toLocaleDateString('en-GB');
+    console.log(formattedDate);
+    res.render('admin/dashboard.ejs', {admin, noOfStudents, messOffStudents, formattedDate});
   } else {
     // The token is invalid or missing, redirect to the login page
     console.log('redirect to login  ')
@@ -246,6 +228,17 @@ router.get('/messMenu', storedTokenMiddleware, validateTokenMiddleware, async(re
   if (req.userId) {
     let messMenu = await adminService.fetchMenu();
     res.render("admin/messMenu.ejs", {messMenu});
+  } else {
+    // The token is invalid or missing, redirect to the login page
+    res.redirect('login');
+  }
+})
+
+// Get mess stats
+router.get('/messStats', storedTokenMiddleware, validateTokenMiddleware, async(req,res)=>{
+  if (req.userId) {
+    // let messMenu = await adminService.fetchMenu();
+    res.render("admin/messStats.ejs");
   } else {
     // The token is invalid or missing, redirect to the login page
     res.redirect('login');
