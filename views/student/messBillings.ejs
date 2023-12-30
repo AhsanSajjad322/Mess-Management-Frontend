@@ -1,0 +1,69 @@
+<% layout("/layouts/studentboilerplate") %>
+
+<body>
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="container">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Mess Menu Details</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/mms/student/dashboard">Dashboard</a></li>
+                           <li class="breadcrumb-item active">Mess Billings</li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="row mt-3">
+                   <div class="col-md-12 d-flex">
+                       <div class="card flex-fill">
+                           <div class="card-header" style="background-color: #7bc2e5;">
+                            <h5 class="card-title page-title">Current Month Mess Billing Details</h5>
+                        </div>
+                        <div class="card-body">
+                          <b><span >Per Meal Mess Price : </b></span> Rs 145
+                        <div class="col-md-12">
+                            <div style="margin-top: 2rem;" class="card flex-fill col-6">
+                                <div class="card-header" style="background-color: #ffbc53;">
+                                   <h5 class="card-title page-title">Expected Mess Bill Current Month </h5>
+                                </div>
+                                <div class="card-body">
+                                    <% let breakfast = 0; %>
+                                    <% let lunch = 0; %>
+                                    <% let dinner = 0; %>
+                                    <% for( let index = 0; index < 31; index++ ) { %>
+                                        <% if (student.calendar.days[index].breakfast == 'P') { %>
+                                            <% breakfast += 1; %>
+                                        <% } %>
+                                        <% if (student.calendar.days[index].lunch == 'P') { %>
+                                            <% lunch += 1; %>
+                                        <% } %>
+                                        <% if (student.calendar.days[index].dinner == 'P') { %>
+                                            <% dinner += 1; %>
+                                        <% } %>
+                                    <% } %>
+                                    <% let totalMealDone = breakfast + lunch + dinner %>
+                                    <b><p>Breakfast </p></b>
+                                    <p>Done :  <%= breakfast %> &nbsp;&nbsp;&nbsp; NotDone: <%= 31 - breakfast %></p>
+                                    <b><p>Lunch </p></b>
+                                    <p>Done :  <%= lunch %> &nbsp;&nbsp;&nbsp; NotDone: <%= 31 - lunch %></p>
+                                    <b><p>Dinner </p></b>
+                                    <p>Done :  <%= dinner %> &nbsp;&nbsp;&nbsp; NotDone: <%= 31 - dinner %></p>
+
+                                    <div>
+                                        <h3>Total Bill : <%= totalMealDone %> X 145 = Rs <%= totalMealDone * 145 %></h3>
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+                </div>
+             </div>
+        </div>
+    </div>
+
+</body>

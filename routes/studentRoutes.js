@@ -188,4 +188,17 @@ router.post('/:id/messoff',storedTokenMiddleware, validateTokenMiddleware, async
     }
 })
 
+// get route for mess billings
+router.get("/messBill", storedTokenMiddleware, validateTokenMiddleware, async(req,res)=>{ 
+  if(req.userId) {
+    let id = req.userId;
+    let student = await adminService.getStudentById(id);
+    // let attendanceData = student.calendar.days;
+    res.render("student/messBillings.ejs" , {student});
+  } else {
+    // The token is invalid or missing, redirect to the login page
+    res.redirect('login');
+  }
+})
+
 module.exports = router;
