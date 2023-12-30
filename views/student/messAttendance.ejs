@@ -1,0 +1,59 @@
+<% layout("/layouts/studentboilerplate") %>
+
+<body>
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="container">
+               <div class="page-header">
+                  <div class="row align-items-center">
+                     <div class="col">
+                        <h3 class="page-title">Mess Menu Details</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="/mms/student/dashboard">Dashboard</a></li>
+                           <li class="breadcrumb-item active">Mess Attendance</li>
+                        </ul>
+                     </div>
+
+                  </div>
+               </div>
+                <div class="row">
+                <div class="col-md-12 d-flex">
+                   <div class="card flex-fill">
+                      <div class="card-header" style="background-color: #7bc2e5;">
+                         <h5 class="card-title page-title">Mess Attendance Details</h5>
+                      </div>
+                      <div class="card-body">
+                         <div class="table-responsive">
+                            <table class="table table-hover table-center">
+                               <thead class="thead-light">
+                                  <tr>
+                                     <th>Day</th>
+                                     <th>Breakfast</th>
+                                     <th>Lunch</th>
+                                     <th>Dinner</th>
+                                  </tr>
+                               </thead>
+                               <tbody>
+                                 <% for( let index = 0; index < attendanceData.length; index++ ) { %>
+                                    <tr>
+                                       <td class="text-nowrap">
+                                          <div><%- attendanceData[index].day %></div>
+                                       </td>
+                                       <td class="text-nowrap"><%- attendanceData[index].breakfast %></td>
+                                       <td class="text-nowrap"><%- attendanceData[index].lunch %></td>
+                                       <td class="text-nowrap"><%- attendanceData[index].dinner %></td>
+                                    </tr>
+                                 <% } %>
+                                  
+                               </tbody>
+                            </table>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                </div>
+             </div>
+        </div>
+    </div>
+
+</body>

@@ -95,29 +95,6 @@ router.get("/logout", storedTokenMiddleware, async(req,res)=>{
     res.redirect('/mms/login');
 })
 
-// router.post("/login/validate",async (req,res)=>{
-//   if (!req.body.isAdmin){
-//     let username= req.body.username;
-//     let password = req.body.password;
-//     let credentials = {
-//         "username": username,
-//         "password": password
-//     }
-//     // ahsan2021
-//     // ahsan
-//     let responce = await studentService.validate(credentials);
-//     console.log(responce);
-//     if (responce == 'valid'){
-//         const storedToken = localStorage.getItem('token');
-//         console.log('Stored Token:', storedToken);
-//         res.redirect('/mms/student/dashboard')
-//     } else if(responce == 'invalid'){
-//         res.render("student/login.ejs");
-//     }
-//   } else{
-//     res.render("student/login.ejs");
-//   }
-// })
 
 router.get("/dashboard",storedTokenMiddleware, validateTokenMiddleware, async (req,res)=>{
     if (req.userId) {
@@ -197,6 +174,18 @@ router.post('/:id/messoff',storedTokenMiddleware, validateTokenMiddleware, async
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
-  
+
+  // get route for mess attendence
+  router.get("/messAttendance", storedTokenMiddleware, validateTokenMiddleware, async(req,res)=>{ 
+    if(req.userId) {
+      let id = req.userId;
+      let student = await adminService.getStudentById(id);
+      let attendanceData = student.calendar.days;
+      res.render("student/messAttendance.ejs", {attendanceData});
+    } else {
+      // The token is invalid or missing, redirect to the login page
+      res.redirect('login');
+    }
+})
 
 module.exports = router;
