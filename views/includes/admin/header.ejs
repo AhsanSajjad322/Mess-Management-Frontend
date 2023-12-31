@@ -1,11 +1,13 @@
 <div class="header">
     <div class="header-left">
        <a href="http://localhost:3001/mms/admin/dashboard" class="logo">
-       <img class="rounded-circle" src="/assests/mess_logo.png" height="40px" alt="Logo">
+         <img class="rounded-circle" src="/assests/mess_logo.png" height="40px" alt="Logo">
        </a>
-       <a href="" class="logo logo-small">
-       <img src="" alt="Logo" width="30" height="30">
-       </a>
+       <form method="get" action="http://localhost:3001/mms/admin/logout">
+         <div class="form-group">
+            <button class="btn btn-primary btn-block" id="logout" type="submit">Logout</button>
+         </div>
+      </form>
     </div>
 
     <div class="header-right">

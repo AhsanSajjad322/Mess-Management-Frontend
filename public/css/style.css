@@ -1,8 +1,3 @@
-/*
-Author       : Dreamguys
-Template Name: Preskool - Bootstrap Admin Template
-Version      : 1.0
-*/
 
 /*============================
  [Table of CSS]
@@ -1363,10 +1358,11 @@ div.dataTables_wrapper div.dataTables_info {
     border-bottom: 1px solid #efefef;
 	border-right: 1px solid #ececf5;
     display: flex;
-    align-items: center;	
+    align-items: center;
+	justify-content: space-between;	
 }
 .mini-sidebar .header .header-left {
-	justify-content: center;
+	justify-content: space;
 }
 .header .header-left .logo {
 	display: inline-block;
@@ -3037,6 +3033,9 @@ table.table-inbox tbody tr.checked {
 	.fa-linkedin-in {
 		bottom: -9px !important;
 	}
+	#logout{
+		display: none;
+	}
 }
 
 @media (min-width:768px) {
@@ -3124,6 +3123,9 @@ table.table-inbox tbody tr.checked {
 	.mini-sidebar .page-wrapper {
 		margin-left: 78px;
 	}
+	#logout{
+		display: none;
+	}
 }
 
 @media (max-width: 1199.5px) {
@@ -3165,10 +3167,10 @@ table.table-inbox tbody tr.checked {
 		z-index: 10;
 	}
 	#toggle_btn {
-		display: none;
+		/* display: none; */
 	}
 	.top-nav-search {
-		display: none;
+		/* display: none; */
 	}
 	.login-wrapper .loginbox .login-left {
 		padding: 80px 50px;
@@ -3235,6 +3237,9 @@ table.table-inbox tbody tr.checked {
 }
 
 @media (max-width: 767.98px) {
+	#logout{
+		visibility: visible !important;
+	}
 	body {
 		font-size: 0.9375rem;
 	}
@@ -3274,7 +3279,7 @@ table.table-inbox tbody tr.checked {
 		padding: 0 15px;
 	}
 	.header .header-left .logo {
-		display: none;
+		/* display: none; */
 	}
 	.header-left .logo.logo-small {
 		display: inline-block;
@@ -3479,6 +3484,10 @@ table.table-inbox tbody tr.checked {
 	margin-right: 10rem;
 }
 
+#logout{
+	margin-top: 1.1rem;
+}
+
 .header{
 	display: flex;
 	justify-content: space-between;
@@ -3487,4 +3496,12 @@ table.table-inbox tbody tr.checked {
 .header-right{
 	margin-right: 2rem;
 	margin-top: 1rem;
+	/* width: 60%; */
+}
+
+.stdDashImg{
+	border-radius: 50%;
+	width: 10rem;
+	height: 15rem;
+	box-shadow: 2px 2px 2px rgb(208, 203, 203);
 }
