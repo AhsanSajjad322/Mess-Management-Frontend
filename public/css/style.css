@@ -3087,14 +3087,14 @@ table.table-inbox tbody tr.checked {
 		width: 78px;
 	}
 	.mini-sidebar .sidebar {
-		width: 78px;
+		/* width: 78px; */
 	}
 	.mini-sidebar.expand-menu .sidebar {
-		width: 240px;
+		/* width: 240px; */
 	}
 	.mini-sidebar .menu-title {
-		visibility: hidden;
-		white-space: nowrap;
+		/* visibility: hidden; */
+		/* white-space: nowrap; */
 	}
 	.mini-sidebar.expand-menu .menu-title {
 		visibility: visible;
@@ -3106,22 +3106,22 @@ table.table-inbox tbody tr.checked {
 		visibility: visible;
 	}
 	.modal-open.mini-sidebar .sidebar {
-		z-index: 1051;
+		/* z-index: 1051; */
 	}
 	.mini-sidebar .sidebar .sidebar-menu ul > li > a span {
-		display: none;
+		/* display: none;
 		transition: all 0.2s ease-in-out;
-		opacity: 0;
+		opacity: 0; */
 	}
 	.mini-sidebar.expand-menu .sidebar .sidebar-menu ul > li > a span {
-		display: inline;
-		opacity: 1;
+		/* display: inline;
+		opacity: 1; */
 	}
 	.mini-sidebar.expand-menu .sidebar .sidebar-menu > ul > li > a i {
 		width: 20px;
 	}
 	.mini-sidebar .page-wrapper {
-		margin-left: 78px;
+		/* margin-left: 78px; */
 	}
 	#logout{
 		display: none;
@@ -3181,12 +3181,12 @@ table.table-inbox tbody tr.checked {
 		width: 50%;
 	}
 	.sidebar {
-		margin-left: -225px;
+		/* margin-left: -225px;
 		width: 225px;
 		-webkit-transition: all 0.4s ease;
 		-moz-transition: all 0.4s ease;
 		transition: all 0.4s ease;
-		z-index: 1041;
+		z-index: 1041; */
 	}
 	.page-wrapper {
 		margin-left: 0;
@@ -3504,4 +3504,13 @@ table.table-inbox tbody tr.checked {
 	width: 10rem;
 	height: 15rem;
 	box-shadow: 2px 2px 2px rgb(208, 203, 203);
+}
+
+#sidebar {
+	/* ... Your existing styles ... */
+	transition: transform 0.3s ease-in-out; /* Add transition for smooth ease-in-out effect */
+}
+
+#toggleSidebarBtn{
+	margin-left: -5rem;
 }

@@ -34,6 +34,40 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.26.0/dist/apexcharts.min.js.map"></script>
 
     <script src="/js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+           // Check screen size on page load
+           checkWindowSize();
+     
+           // Check screen size on window resize
+           $(window).resize(function () {
+              checkWindowSize();
+           });
+     
+           function checkWindowSize() {
+              if ($(window).width() <= 992) {
+                 // If screen size is 992px or less, hide sidebar and show toggle button
+                 $("#sidebar").css("transform", "translateX(-100%)");
+                 $("#toggleSidebarBtn").show();
+              } else {
+                 // If screen size is greater than 992px, show sidebar and hide toggle button
+                 $("#sidebar").css("transform", "translateX(0)");
+                 $("#toggleSidebarBtn").hide();
+              }
+           }
+     
+           // Toggle sidebar on button click
+           $("#toggleSidebarBtn").click(function () {
+              if ($("#sidebar").css("transform") === "matrix(1, 0, 0, 1, 0, 0)") {
+                 // If sidebar is visible, hide it
+                 $("#sidebar").css("transform", "translateX(-100%)");
+              } else {
+                 // If sidebar is hidden, show it
+                 $("#sidebar").css("transform", "translateX(0)");
+              }
+           });
+        });
+     </script>
 
 
 </body>
