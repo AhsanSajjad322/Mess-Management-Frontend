@@ -117,9 +117,13 @@ router.get("/dashboard",storedTokenMiddleware, validateTokenMiddleware, async (r
     // // console.log(messOffStudents[0].lunch.length);
     // console.log(messOffStudents)
     let date = new Date();
-    let formattedDate = date.toLocaleDateString('en-GB');
-    console.log(formattedDate);
-    res.render('admin/dashboard.ejs', {admin, noOfStudents, messOffStudents, formattedDate});
+    let monthNames = [
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August',
+      'September', 'October', 'November', 'December'
+    ];
+    let currentMonthName = monthNames[date.getMonth()];
+    res.render('admin/dashboard.ejs', {admin, noOfStudents, messOffStudents, currentMonthName});
   } else {
     // The token is invalid or missing, redirect to the login page
     console.log('redirect to login  ')
