@@ -10,7 +10,7 @@ const studentRoutes = require("./routes/studentRoutes")
 const LocalStorage = require('node-localstorage').LocalStorage;
 const localStorage = new LocalStorage('./scratch');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
